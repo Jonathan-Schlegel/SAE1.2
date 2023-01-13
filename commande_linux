@@ -1,23 +1,28 @@
-dhclient
-ip addr show
-ip addr add @ip/masque dev interface_reseau
-ip addr flush dev interface_reseau
-ip addr del @ip dev interface_reseau
-ip link show
-mii-tool
-ip link set up dev interface_reseau
-ip link set down dev interface_reseau
-ip neighbour
-ip neighbour flush all
-ip route
-ip route add default via @ip_gateway dev interface_reseau
-ip route add @ip_gateway dev interface_reseau
-ip route del @ip_gateway dev interface_reseau
-ip route flush @ip_gateway dev interface_reseau
+Réseau
+dhclient ipconfig/renew
+ip addr show	ipconfig ipconfig/all
+ip addr add @ip/masque dev interface_reseau	netsh interface ip set address name="Ethernet1" static 10.1.4.220 255.255.255.0 10.1.4.1
+ip addr flush dev interface_reseau	ipconfig/release
+ip addr del @ip dev interface_reseau	ipconfig/release
+ip link show	ipconfig/all
+ip link set up dev interface_reseau  netsh interface set interface "Ethernet0" enable
+ip link set down dev interface_reseau	netsh interface set interface "Ethernet0" disable
+ip neighbour	arp-a
+ip neighbour flush all	arp -d
+ip route	ipconfig
+ip route add default via @ip_gateway dev interface_reseau route ADD 0.0.0.0 MASK 0.0.0.0 192.168.1.254 
+ip route add @ip_gateway dev interface_reseau	route add @reseau mask masque @ip
+ip route del @ip_gateway dev interface_reseau	route delete @reseau mask masque @ip
+ip route flush @ip_gateway dev interface_reseau		route delete 0.0.0.0
 ip route flush dev interface_reseau
-ping @ip -c
+ping @ip  ping @ip 
+traceroute tracert 
+netstat netstat
+
+OS
 sudo 
 Répartition des tâches
 VM
+
 
 
