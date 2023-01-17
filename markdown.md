@@ -65,3 +65,17 @@ alert(message);
 ## Inline code
 
 This web site is using `markedjs/marked`.
+
+## Ancre
+
+[Partie 1][première]
+
+<br> 
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+
+
+## Partie 1 :
+
+
+[première]: #Partie-1-:
+
